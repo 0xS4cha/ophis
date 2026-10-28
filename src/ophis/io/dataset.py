@@ -23,7 +23,7 @@ def download_and_extract(url: str | None, kaggle_name: str | None, dest_dir: Pat
             tar_ref.extractall(dest_dir)
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Aether Dataset Downloader and Generator")
+    parser = argparse.ArgumentParser(description="Ophis Dataset Downloader and Generator")
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument("--url", type=str, help="URL of archive to download")
     group.add_argument("--kagglehub", type=str, help="Dataset identifier from Kaggle")

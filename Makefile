@@ -1,4 +1,4 @@
-.PHONY: install install-editable test sample run clean docker-build docker-run
+.PHONY: install install-editable test run clean docker-build docker-run
 
 install:
 	uv sync
@@ -9,11 +9,8 @@ install-editable:
 test:
 	uv run pytest
 
-sample:
-	uv run aether generate-sample --output data/samples/sample_nebula.png
-
 run:
-	uv run aether visualize --sample
+	uv run ophis
 
 clean:
 	find . -type d -name "__pycache__" -exec rm -rf {} +
@@ -21,7 +18,7 @@ clean:
 	rm -rf dist build *.egg-info
 
 docker-build:
-	docker build -t aether:latest .
+	docker build -t ophis:latest .
 
 docker-run:
-	docker run --rm -v $(PWD)/data:/app/data aether:latest visualize --sample --headless --screenshot data/outputs/docker_render.png
+	docker run --rm -v $(PWD)/data:/app/data ophis:latest
