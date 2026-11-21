@@ -155,7 +155,7 @@ class MainWindow(QMainWindow):
         counts = lesion_pixel_counts(masks)
         for lesion in LESIONS:
             n = counts.get(lesion)
-            self.lesion_counts[lesion].setText("–" if n is None else f"{n:,} px".replace(",", " "))
+            self.lesion_counts[lesion].setText("–" if n is None else f"{n:,} px")
         self._show(image, masks, title=sample.name)
 
     def _choose_dataset(self) -> None:
